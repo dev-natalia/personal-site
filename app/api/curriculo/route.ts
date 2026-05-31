@@ -7,10 +7,8 @@ export const dynamic = "force-dynamic";
 
 function generatePDF(): Promise<ArrayBuffer> {
   return new Promise((resolve, reject) => {
-    const worker = new Worker(
-      path.join(process.cwd(), "scripts/pdfWorker.mjs"),
-      { workerData: curriculo }
-    );
+    const workerPath = path.join(process.cwd(), "scripts", "pdfWorker.mjs");
+    const worker = new Worker(workerPath, { workerData: curriculo });
     worker.once("message", (buf: Buffer) => {
       const ab = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
       resolve(ab as ArrayBuffer);
