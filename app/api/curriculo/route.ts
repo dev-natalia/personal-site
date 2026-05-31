@@ -5,13 +5,16 @@ import { curriculo } from "@/lib/curriculo";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-function generatePDF(): Promise<Uint8Array> {
+function generatePDF(): Promise<ArrayBuffer> {
   return new Promise((resolve, reject) => {
     const worker = new Worker(
       path.join(process.cwd(), "scripts/pdfWorker.mjs"),
       { workerData: curriculo }
     );
-    worker.once("message", (buf: Buffer) => resolve(new Uint8Array(buf)));
+    worker.once("message", (buf: Buffer) => {
+      const ab = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+      resolve(ab as ArrayBuffer);
+    });
     worker.once("error", reject);
     worker.once("exit", (code) => {
       if (code !== 0) reject(new Error(`PDF worker exited with code ${code}`));
