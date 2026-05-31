@@ -27,7 +27,7 @@ export default function Hero() {
     >
       {/* Vídeo de fundo */}
       <video
-        src="/site-pessoal.mp4"
+        src="/site-abertura.mp4"
         autoPlay
         loop
         muted
