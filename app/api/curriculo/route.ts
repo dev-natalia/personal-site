@@ -21,7 +21,7 @@ function generatePDF(): Promise<Buffer> {
 
 export async function GET() {
   const buffer = await generatePDF();
-  return new Response(buffer, {
+  return new Response(new Uint8Array(buffer), {
     headers: {
       "Content-Type": "application/pdf",
       "Content-Disposition": 'attachment; filename="natalia-silva-curriculo.pdf"',
