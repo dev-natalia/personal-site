@@ -5,9 +5,11 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 const facts = [
-  { icon: "🏗️", text: "Fui de empresa júnior a Engenheiros Sem Fronteiras" },
-  { icon: "🐾", text: "Tenho uma cachorra e uma gata que supervisionam meu trabalho" },
-  { icon: "🥤", text: "Meu setup inclui Monster e cigarro — não necessariamente nessa ordem" },
+  { icon: "🏗️", text: "Já passei por empresa júnior e pelo Engenheiros Sem Fronteiras." },
+  {
+    icon: "🐾",
+    text: "Tenho uma cachorra e uma gata que supervisionam meu trabalho. Aparentemente, nenhuma das duas confia muito na minha capacidade de trabalhar sozinha.",
+  },
 ];
 
 export default function About() {
@@ -87,13 +89,13 @@ export default function About() {
 
             <div className="flex flex-col gap-5 text-text-muted leading-relaxed text-base">
               <p>
-                Natália Pereira da Silva, desenvolvedora backend baseada em São Paulo — com sotaque mineiro no meio, porque dez anos em Minas deixam marca.
+                Natália Pereira da Silva, desenvolvedora backend em São Paulo, com sotaque mineiro de brinde. Dez anos em Minas deixam marcas.
               </p>
               <p>
-                O caminho não foi em linha reta: comecei em Ciência da Computação, passei por artes, design e engenharia mecânica antes de voltar para o código. Quando voltei, reaprendi tudo em tempo recorde — e percebi que as outras áreas tinham me dado algo que a maioria dos devs não tem: uma visão diferente de problema.
+                Minha trajetória foi meio engraçada: comecei em Ciência da Computação, passei por artes, design e engenharia mecânica e, no fim, voltei para o código. Tive que reaprender muita coisa em tempo recorde, mas trouxe comigo uma bagagem que uso até hoje: a experiência de olhar para um mesmo problema por ângulos bem diferentes.
               </p>
               <p>
-                Trabalho principalmente com backend: APIs, integração de sistemas, bancos SQL e NoSQL, AWS (SQS, Kafka, Lambda, SNS, S3, Step Functions). Mais de 6 anos de experiência e, ultimamente, cada vez mais interessada em arquitetura de sistemas.
+                Trabalho principalmente com backend, desenvolvendo APIs e integrações entre sistemas, lidando com bancos SQL e NoSQL e serviços da AWS, como SQS, Lambda, S3 e Step Functions. São mais de 7 anos de experiência e uma curiosidade cada vez maior por arquitetura de sistemas.
               </p>
             </div>
 

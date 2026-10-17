@@ -96,7 +96,7 @@ export default function Hero() {
 
           <p className="text-text-muted text-base leading-relaxed">
             Trabalho com APIs, integração de sistemas e arquitetura backend.
-            Mais de 6 anos construindo coisas que funcionam de verdade.
+            Mais de 7 anos construindo coisas que funcionam de verdade.
           </p>
 
           <div className="flex flex-col gap-3 pt-2 w-fit">
@@ -108,8 +108,8 @@ export default function Hero() {
                 Fale comigo
               </Button>
             </div>
-            <Button href="/api/curriculo" download variant="primary" className="w-full">
-              Baixar currículo ↓
+            <Button href="/curriculo" variant="primary" className="w-full">
+              Currículo
             </Button>
           </div>
         </motion.div>

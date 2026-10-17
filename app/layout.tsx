@@ -23,11 +23,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Natália Pereira da Silva — Desenvolvedora Backend",
   description:
-    "Portfólio de Natália Pereira da Silva, desenvolvedora backend sênior com +6 anos de experiência em Python, AWS e arquitetura de sistemas.",
+    "Portfólio de Natália Pereira da Silva, desenvolvedora backend sênior com +7 anos de experiência em Python, AWS e arquitetura de sistemas.",
   openGraph: {
     title: "Natália Pereira da Silva — Desenvolvedora Backend",
     description:
-      "Portfólio de Natália Pereira da Silva, desenvolvedora backend sênior com +6 anos de experiência em Python, AWS e arquitetura de sistemas.",
+      "Portfólio de Natália Pereira da Silva, desenvolvedora backend sênior com +7 anos de experiência em Python, AWS e arquitetura de sistemas.",
     url: "https://nataliaps.dev",
     siteName: "Natália Pereira da Silva",
     images: [{ url: "/coding.png", width: 1200, height: 630, alt: "Natália Pereira da Silva — Desenvolvedora Backend" }],
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Natália Pereira da Silva — Desenvolvedora Backend",
     description:
-      "Portfólio de Natália Pereira da Silva, desenvolvedora backend sênior com +6 anos de experiência em Python, AWS e arquitetura de sistemas.",
+      "Portfólio de Natália Pereira da Silva, desenvolvedora backend sênior com +7 anos de experiência em Python, AWS e arquitetura de sistemas.",
     images: ["/coding.png"],
   },
 };

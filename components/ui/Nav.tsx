@@ -48,8 +48,7 @@ export default function Nav() {
           ))}
         </ul>
         <a
-          href="/api/curriculo"
-          download="natalia-silva-curriculo.pdf"
+          href="/curriculo"
           className="text-accent border border-accent text-xs font-mono px-3 py-1.5 rounded hover:bg-accent/10 transition-colors duration-200"
         >
           currículo

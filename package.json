@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-pdf/renderer": "^4.5.1",
     "framer-motion": "^11.0.0",
     "next": "^15.3.0",
     "react": "^18",

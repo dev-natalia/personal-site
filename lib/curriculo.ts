@@ -7,7 +7,7 @@ export const curriculo = {
   github: "github.com/dev-natalia",
 
   resumo:
-    "Desenvolvedora backend com mais de 5 anos de experiência em Python, com foco na construção de APIs REST, microsserviços escaláveis e soluções em nuvem (AWS e GCP). Forte domínio de bancos de dados relacionais e NoSQL, pipelines de dados, mensageria e integração com APIs de terceiros. Destaque para modernização de sistemas legados, automação de processos internos e liderança técnica de squads.",
+    "Desenvolvedora backend com mais de 7 anos de experiência em Python, com foco na construção de APIs REST, microsserviços escaláveis e soluções em nuvem (AWS e GCP). Forte domínio de bancos de dados relacionais e NoSQL, pipelines de dados, mensageria e integração com APIs de terceiros. Destaque para modernização de sistemas legados, automação de processos internos e liderança técnica de squads.",
 
   skills: [
     "Python", "FastAPI", "Flask", "Falcon",
