@@ -12,12 +12,27 @@ export const curriculo = {
   skills: [
     "Python", "FastAPI", "Flask", "Falcon",
     "API REST", "PostgreSQL", "MySQL", "MongoDB",
-    "AWS (Lambda, S3, SQS, SNS, Kinesis)", "GCP (Cloud Functions, BigQuery)",
+    "AWS (Lambda, Step Functions, API Gateway, S3, SQS, SNS, RDS, Kinesis, Glue)", "GCP (Cloud Functions, BigQuery)",
     "Docker", "Terraform", "Kafka", "RabbitMQ",
-    "Angular", "AI Tools / Prompt Engineering",
+    "Angular", "AI Tools / Prompt Engineering", "Spec-Driven Development",
   ],
 
   experiencia: [
+    {
+      empresa: "Itaú Unibanco (pela Zup)",
+      cargo: "Desenvolvedora Backend Python · Pleno · Squad Process Mining",
+      periodo: "Março 2026 – Presente",
+      itens: [
+        "Desenvolvimento de autosserviço para clientes de Process Mining com Python, Angular e AWS, do MVP à versão 3",
+        "Criação da arquitetura da solução na AWS com Step Functions, Lambda, API Gateway, SQS e RDS PostgreSQL",
+        "Pipeline de upload e processamento de logs de eventos, com validações, mapeamento, processamento em batches e integração via APIs com a plataforma de Process Mining da IBM",
+        "Desenvolvimento de motor de validação de logs aplicando regras de negócio",
+        "Modelagem e desenvolvimento do banco PostgreSQL, com SQL e princípios de normalização",
+        "Melhorias de performance que reduziram o upload de arquivos acima de 1 GB de 5–10 minutos para cerca de 2 minutos, além de otimizações no motor de validação",
+        "Uso de IA no desenvolvimento com Spec-Driven Development e Harness Engineering, antecipando a entrega do fim de novembro para o fim de setembro",
+        "Participação em refinamentos, discoveries e cerimônias Scrum, incluindo Sprint Planning, Release Planning e demos",
+      ],
+    },
     {
       empresa: "Zup Innovation",
       cargo: "Desenvolvedora Backend Python · Pleno",
@@ -26,9 +41,11 @@ export const curriculo = {
         "Desenvolvimento e sustentação de APIs REST com Python e FastAPI",
         "Integração com APIs externas e serviços internos",
         "Uso intensivo de PostgreSQL para persistência e consulta de dados",
-        "Implementação de serviços AWS: S3 e SQS",
+        "Implementação e consumo de serviços AWS: S3 (armazenamento) e SQS (mensageria e processamento assíncrono)",
         "Documentação de APIs com Swagger / OpenAPI",
+        "Gerenciamento de dependências e ambientes com Poetry e testes de endpoints com Postman",
         "Atuação em iniciativas de integração com soluções de IA e engenharia de prompt",
+        "Participação no ciclo completo de desenvolvimento: implementação, manutenção e suporte de APIs em produção",
       ],
     },
     {
@@ -48,7 +65,7 @@ export const curriculo = {
       itens: [
         "Desenvolvimento de Cloud Functions no GCP para ingestão e normalização de dados externos",
         "Armazenamento em formato Parquet no Cloud Storage e ingestão via BigQuery Data Transfer",
-        "Integração com APIs REST e Webhooks, com tratamento de autenticação e paginação",
+        "Integração com APIs REST e Webhooks, com tratamento de autenticação, paginação, limites e validação de schemas",
         "Desenho de fluxos de ingestão resilientes para dados utilizados internamente",
       ],
     },
@@ -58,9 +75,10 @@ export const curriculo = {
       periodo: "Janeiro 2022 – Fevereiro 2024",
       itens: [
         "Automação de processos internos via microsserviços integrados a APIs externas de parceiros",
-        "Desenvolvimento de CDC com AWS Kinesis e DMS; liderança da migração para Apache NiFi, reduzindo tempo de ingestão em 70%",
+        "Desenvolvimento de CDC com AWS Kinesis e DMS; liderança da migração para Apache NiFi, reduzindo o tempo de ingestão em mais de 70%",
         "Criação de área logada para clientes com endpoints seguros",
         "Sistemas distribuídos com RabbitMQ como broker de mensagens",
+        "Parceria próxima com Arquitetura e QA para garantir escalabilidade e testes adequados",
       ],
     },
     {
@@ -68,7 +86,8 @@ export const curriculo = {
       cargo: "Desenvolvedora Backend Python · Principal",
       periodo: "Janeiro 2022 – Dezembro 2022",
       itens: [
-        "Criação da API principal da empresa do zero com FastAPI e arquitetura limpa",
+        "Criação da API principal da empresa do zero com FastAPI e arquitetura limpa, em um monólito desacoplado",
+        "Refatoração de uma segunda API interna para padronização e melhor organização do código",
         "Modelagem de banco de dados com MySQL hospedado em AWS Aurora",
         "Deploy com Docker em instâncias EC2",
         "Responsável técnica pelas APIs da empresa durante todo o ciclo de vida",
@@ -81,8 +100,9 @@ export const curriculo = {
       itens: [
         "Integrações com APIs externas conectando serviços terceiros ao sistema interno",
         "Uso de AWS (Lambda, S3, SNS, SQS) para arquitetura orientada a eventos",
-        "Liderança de time de 2 pessoas na reestruturação do sistema de integração com Kafka, MongoDB e APIs assíncronas",
-        "Implantação de testes com Pytest e validação com Pydantic, Mypy e Pylint",
+        "Liderança de time de 2 pessoas na reestruturação do sistema de integração com Kafka, MongoDB e APIs assíncronas em Flask, FastAPI e Falcon",
+        "Implantação de testes com Pytest e validação com Pydantic, Poetry, Mypy e Pylint",
+        "Deploys com Docker no Rancher e automação via Jenkins",
       ],
     },
     {
@@ -94,6 +114,18 @@ export const curriculo = {
         "Integração com Sentry, Trello e Discord (bots internos)",
         "Criação de bot para gerenciamento de home office: ponto, tarefas e controle de equipe",
         "Banco de dados MySQL e ambientes isolados com Docker",
+        "Versionamento com Git e suporte a workflows limpos de desenvolvimento",
+      ],
+    },
+    {
+      empresa: "Simbiose Ventures",
+      cargo: "Analista de Pessoas e Processos",
+      periodo: "Dezembro 2018 – Junho 2019",
+      itens: [
+        "Gestão de uma equipe de 15 pessoas, com definição de metas, prazos e acompanhamento da execução",
+        "Condução de mais de 100 entrevistas com foco em fit cultural (metodologia Hiring for Attitude)",
+        "Criação de planos personalizados de evolução técnica e aprendizado",
+        "Desenvolvimento de processos internos e checklists para melhoria contínua da operação",
       ],
     },
   ],
