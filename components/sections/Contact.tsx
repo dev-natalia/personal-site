@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { dict, type Lang } from "@/lib/i18n";
 
 const socialLinks = [
   {
@@ -36,7 +37,8 @@ const socialLinks = [
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
-export default function Contact() {
+export default function Contact({ lang }: { lang: Lang }) {
+  const t = dict[lang].contact;
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [status, setStatus] = useState<FormStatus>("idle");
@@ -71,9 +73,9 @@ export default function Contact() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <p className="font-mono text-accent text-sm mb-3">contato</p>
+          <p className="font-mono text-accent text-sm mb-3">{t.eyebrow}</p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-main mb-10">
-            Bora conversar
+            {t.title}
           </h2>
         </motion.div>
 
@@ -86,7 +88,7 @@ export default function Contact() {
             className="flex flex-col gap-6"
           >
             <p className="text-text-muted text-base leading-relaxed">
-              Aberta a oportunidades, colaborações e boas conversas sobre sistemas. Me manda uma mensagem ou entra em contato pelas redes.
+              {t.intro}
             </p>
             <div className="flex flex-col gap-4">
               {socialLinks.map((link) => (
@@ -117,7 +119,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <input
                 type="text"
-                placeholder="Nome"
+                placeholder={t.name}
                 value={form.name}
                 onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                 required
@@ -125,14 +127,14 @@ export default function Contact() {
               />
               <input
                 type="email"
-                placeholder="Email"
+                placeholder={t.email}
                 value={form.email}
                 onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                 required
                 className={inputClass}
               />
               <textarea
-                placeholder="Mensagem"
+                placeholder={t.message}
                 value={form.message}
                 onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
                 required
@@ -144,16 +146,16 @@ export default function Contact() {
                 disabled={status === "sending"}
                 className="bg-accent text-bg font-medium text-sm px-6 py-3 rounded hover:bg-accent/90 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {status === "sending" ? "Enviando..." : "Enviar mensagem"}
+                {status === "sending" ? t.sending : t.send}
               </button>
               {status === "success" && (
                 <p className="text-accent text-sm font-mono">
-                  Mensagem enviada! Respondo em breve.
+                  {t.success}
                 </p>
               )}
               {status === "error" && (
                 <p className="text-red-400 text-sm font-mono">
-                  Algo deu errado. Tenta de novo ou manda email direto.
+                  {t.error}
                 </p>
               )}
             </form>

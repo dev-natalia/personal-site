@@ -148,3 +148,5 @@ export const curriculo = {
     },
   ],
 };
+
+export type Curriculo = typeof curriculo;

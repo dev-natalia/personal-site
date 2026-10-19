@@ -40,3 +40,4 @@ One page com navegação por scroll suave (âncoras):
 - Blog não está no escopo da v1
 - Ilustrações animadas: cena com a dev programando, acompanhada de cachorra e gata
 - Tagline do Hero a definir após o restante do site estar tomando forma
+- Idiomas: português em `/` e `/curriculo`, inglês em `/en` e `/en/curriculo` (route groups `app/(pt)` e `app/(en)`, cada um com layout raiz próprio). Textos da interface em `lib/i18n.ts`; currículo em inglês em `lib/curriculo-en.ts` — ao atualizar o currículo, atualizar os dois arquivos

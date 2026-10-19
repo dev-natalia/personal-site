@@ -4,15 +4,16 @@ import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import BlinkingCursor from "@/components/ui/BlinkingCursor";
 import { useTypewriter } from "@/hooks/useTypewriter";
+import { dict, paths, type Lang } from "@/lib/i18n";
 
 const NAME = "Natália Pereira\nda Silva";
-const SUBTITLE = "Desenvolvedora backend · São Paulo, SP";
 
-export default function Hero() {
+export default function Hero({ lang }: { lang: Lang }) {
+  const t = dict[lang].hero;
   const { displayed, phaseIndex } = useTypewriter(
     [
       { text: NAME, speed: 60 },
-      { text: SUBTITLE, speed: 45 },
+      { text: t.subtitle, speed: 45 },
     ],
     800
   );
@@ -77,7 +78,7 @@ export default function Hero() {
           className="flex flex-col gap-6 max-w-md"
         >
           <div>
-            <p className="font-mono text-accent text-sm mb-3">Olá, eu sou</p>
+            <p className="font-mono text-accent text-sm mb-3">{t.greeting}</p>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-main leading-tight">
               {nameLines.map((line, i) => (
                 <span key={i}>
@@ -94,22 +95,21 @@ export default function Hero() {
             {(phaseIndex === 1 || phaseIndex === -1) && <BlinkingCursor />}
           </div>
 
-          <p className="text-text-muted text-base leading-relaxed">
-            Trabalho com APIs, integração de sistemas e arquitetura backend.
-            Mais de 7 anos construindo coisas que funcionam de verdade.
-          </p>
+          <p className="text-text-muted text-base leading-relaxed">{t.intro}</p>
+
+          <p className="font-mono text-text-muted text-xs leading-relaxed">{t.availability}</p>
 
           <div className="flex flex-col gap-3 pt-2 w-fit">
             <div className="flex gap-3">
               <Button href="#projetos" variant="outline">
-                Ver projetos
+                {t.verProjetos}
               </Button>
               <Button href="#contato" variant="outline">
-                Fale comigo
+                {t.faleComigo}
               </Button>
             </div>
-            <Button href="/curriculo" variant="primary" className="w-full">
-              Currículo
+            <Button href={paths[lang].curriculo} variant="primary" className="w-full">
+              {t.curriculo}
             </Button>
           </div>
         </motion.div>

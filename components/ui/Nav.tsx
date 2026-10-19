@@ -2,15 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import LangSwitch from "@/components/ui/LangSwitch";
+import { dict, otherLang, paths, type Lang } from "@/lib/i18n";
 
-const links = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projetos", href: "#projetos" },
-  { label: "Contato", href: "#contato" },
-];
-
-export default function Nav() {
+export default function Nav({ lang }: { lang: Lang }) {
+  const t = dict[lang].nav;
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -36,7 +32,7 @@ export default function Nav() {
           nps
         </a>
         <ul className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
+          {t.links.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
@@ -47,12 +43,17 @@ export default function Nav() {
             </li>
           ))}
         </ul>
-        <a
-          href="/curriculo"
-          className="text-accent border border-accent text-xs font-mono px-3 py-1.5 rounded hover:bg-accent/10 transition-colors duration-200"
-        >
-          currículo
-        </a>
+        <div className="flex items-center gap-3">
+          <LangSwitch href={paths[otherLang(lang)].home} label={t.switchLangLabel}>
+            {t.switchLang}
+          </LangSwitch>
+          <a
+            href={paths[lang].curriculo}
+            className="text-accent border border-accent text-xs font-mono px-3 py-1.5 rounded hover:bg-accent/10 transition-colors duration-200"
+          >
+            {t.curriculo}
+          </a>
+        </div>
       </nav>
     </motion.header>
   );

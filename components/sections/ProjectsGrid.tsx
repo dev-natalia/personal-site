@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Card from "@/components/ui/Card";
+import { dict, type Lang } from "@/lib/i18n";
 
 export interface ProjectCard {
   name: string;
@@ -15,12 +16,14 @@ export interface ProjectCard {
 }
 
 interface ProjectsGridProps {
+  lang: Lang;
   /** null quando o GitHub não respondeu */
   projects: ProjectCard[] | null;
   profileUrl: string;
 }
 
-export default function ProjectsGrid({ projects, profileUrl }: ProjectsGridProps) {
+export default function ProjectsGrid({ lang, projects, profileUrl }: ProjectsGridProps) {
+  const t = dict[lang].projects;
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -33,9 +36,9 @@ export default function ProjectsGrid({ projects, profileUrl }: ProjectsGridProps
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <p className="font-mono text-accent text-sm mb-3">projetos</p>
+          <p className="font-mono text-accent text-sm mb-3">{t.eyebrow}</p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-main mb-10">
-            O que estou construindo
+            {t.title}
           </h2>
         </motion.div>
 
@@ -56,7 +59,7 @@ export default function ProjectsGrid({ projects, profileUrl }: ProjectsGridProps
                     {project.stars > 0 && (
                       <span
                         className="shrink-0 text-xs font-mono text-text-muted"
-                        aria-label={`${project.stars} estrelas no GitHub`}
+                        aria-label={t.starsLabel(project.stars)}
                       >
                         ★ {project.stars}
                       </span>
@@ -73,12 +76,12 @@ export default function ProjectsGrid({ projects, profileUrl }: ProjectsGridProps
                         {project.language}
                       </span>
                     )}
-                    <span className="text-xs font-mono text-text-muted">Atualizado {project.updated}</span>
+                    <span className="text-xs font-mono text-text-muted">{t.updated} {project.updated}</span>
                     <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`Ver ${project.name} no GitHub`}
+                      aria-label={t.viewOnGithub(project.name)}
                       className="ml-auto text-text-muted hover:text-accent text-xs font-mono transition-colors duration-200"
                     >
                       GitHub →
@@ -90,14 +93,14 @@ export default function ProjectsGrid({ projects, profileUrl }: ProjectsGridProps
           </div>
         ) : (
           <p className="text-text-muted">
-            Os projetos não carregaram agora.{" "}
+            {t.failed}{" "}
             <a
               href={profileUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-accent hover:underline"
             >
-              Ver meus projetos no GitHub
+              {t.failedLink}
             </a>
           </p>
         )}

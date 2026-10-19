@@ -3,16 +3,10 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { dict, type Lang } from "@/lib/i18n";
 
-const facts = [
-  { icon: "🏗️", text: "Já passei por empresa júnior e pelo Engenheiros Sem Fronteiras." },
-  {
-    icon: "🐾",
-    text: "Tenho uma cachorra e uma gata que supervisionam meu trabalho. Aparentemente, nenhuma das duas confia muito na minha capacidade de trabalhar sozinha.",
-  },
-];
-
-export default function About() {
+export default function About({ lang }: { lang: Lang }) {
+  const t = dict[lang].about;
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -82,25 +76,19 @@ export default function About() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-mono text-accent text-sm mb-3">sobre mim</p>
+            <p className="font-mono text-accent text-sm mb-3">{t.eyebrow}</p>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-main mb-8">
-              Quem está por trás do código
+              {t.title}
             </h2>
 
             <div className="flex flex-col gap-5 text-text-muted leading-relaxed text-base">
-              <p>
-                Natália Pereira da Silva, desenvolvedora backend em São Paulo, com sotaque mineiro de brinde. Dez anos em Minas deixam marcas.
-              </p>
-              <p>
-                Minha trajetória foi meio engraçada: comecei em Ciência da Computação, passei por artes, design e engenharia mecânica e, no fim, voltei para o código. Tive que reaprender muita coisa em tempo recorde, mas trouxe comigo uma bagagem que uso até hoje: a experiência de olhar para um mesmo problema por ângulos bem diferentes.
-              </p>
-              <p>
-                Trabalho principalmente com backend, desenvolvendo APIs e integrações entre sistemas, lidando com bancos SQL e NoSQL e serviços da AWS, como SQS, Lambda, S3 e Step Functions. São mais de 7 anos de experiência e uma curiosidade cada vez maior por arquitetura de sistemas.
-              </p>
+              {t.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
 
             <div className="mt-10 flex flex-col gap-4">
-              {facts.map((fact, i) => (
+              {t.facts.map((fact, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: 16 }}

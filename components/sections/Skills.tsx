@@ -3,13 +3,14 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { dict, type Dict, type Lang } from "@/lib/i18n";
 
 // ícones removidos do cdn.simpleicons.org (questão de trademark) — servidos via jsdelivr (SVG preto, recolorido via CSS filter)
 const SI = (slug: string) => `https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${slug}.svg`;
 
-const categories = [
+const buildCategories = (t: Dict["skills"]) => [
   {
-    title: "Linguagens & Frameworks",
+    title: t.categories.langs,
     skills: [
       { name: "Python",      icon: "https://cdn.simpleicons.org/python/6EE7B7" },
       { name: "FastAPI",     icon: "https://cdn.simpleicons.org/fastapi/6EE7B7" },
@@ -18,7 +19,7 @@ const categories = [
     ],
   },
   {
-    title: "Bancos de Dados",
+    title: t.categories.dbs,
     skills: [
       { name: "MySQL",      icon: "https://cdn.simpleicons.org/mysql/6EE7B7" },
       { name: "SQL Server", icon: SI("microsoftsqlserver"), recolor: true },
@@ -28,7 +29,7 @@ const categories = [
     ],
   },
   {
-    title: "AWS",
+    title: t.categories.aws,
     skills: [
       { name: "SQS",         icon: SI("amazonsqs"),        recolor: true },
       { name: "Lambda",      icon: SI("awslambda"),         recolor: true },
@@ -38,7 +39,7 @@ const categories = [
     ],
   },
   {
-    title: "DevOps & Infra",
+    title: t.categories.devops,
     skills: [
       { name: "Docker", icon: "https://cdn.simpleicons.org/docker/6EE7B7" },
       { name: "Terraform", icon: "https://cdn.simpleicons.org/terraform/6EE7B7" },
@@ -47,15 +48,15 @@ const categories = [
     ],
   },
   {
-    title: "Arquitetura & Design",
+    title: t.categories.arch,
     skills: [
-      { name: "Modelagem de BD", icon: null },
-      { name: "Arquitetura de Sistemas", icon: null },
-      { name: "Integração de Sistemas", icon: null },
+      { name: t.names.dbModeling, icon: null },
+      { name: t.names.sysArch, icon: null },
+      { name: t.names.sysIntegration, icon: null },
     ],
   },
   {
-    title: "IA & Ferramentas",
+    title: t.categories.ai,
     skills: [
       { name: "Prompt Engineering", icon: null },
       { name: "AI-assisted Dev", icon: null },
@@ -91,7 +92,9 @@ function SkillBadge({ name, icon, recolor }: { name: string; icon: string | null
   );
 }
 
-export default function Skills() {
+export default function Skills({ lang }: { lang: Lang }) {
+  const t = dict[lang].skills;
+  const categories = buildCategories(t);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -104,9 +107,9 @@ export default function Skills() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <p className="font-mono text-accent text-sm mb-3">skills</p>
+          <p className="font-mono text-accent text-sm mb-3">{t.eyebrow}</p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-main mb-10">
-            O que uso no dia a dia
+            {t.title}
           </h2>
         </motion.div>
 
